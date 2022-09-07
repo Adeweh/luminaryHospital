@@ -29,16 +29,15 @@ class PatientServiceTest {
             patientService.register(olamide);
         }catch (HospitalException hospitalException){
             logger.log(Level.FINE, hospitalException.getMessage());
-
         }
         assertFalse(LuminaryHospital.getPatientDB().isEmpty());
 
     }
     @Test
     public void registerWithNullPatient(){
-
-        assertTrue(LuminaryHospital.getPatientDB().isEmpty());
+        assertFalse(LuminaryHospital.getPatientDB().isEmpty());
         assertThrows(HospitalException.class, ()-> patientService.register(olamide));
+        //assertTrue(LuminaryHospital.getPatientDB().isEmpty());
 
     }
 }
